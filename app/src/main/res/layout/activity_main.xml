@@ -6,35 +6,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_alignWithParentIfMissing="false"
+    android:background="@color/main"
+    android:scrollbarThumbHorizontal="@color/white"
+    android:scrollbarThumbVertical="@color/white"
     tools:context=".MainActivity">
 
 
     <LinearLayout
         android:layout_width="300dp"
         android:layout_height="0dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="200dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/platformName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingBottom="50dp"
-            android:text="no Absent"
-            android:textSize="30sp" />
-
         <EditText
             android:id="@+id/textFieldUserRGM"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:fontFamily="@font/roboto"
             android:hint="RGM"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:linksClickable="false"
+            android:scrollbarThumbHorizontal="@color/white"
+            android:scrollbarThumbVertical="@color/white"
+            android:textColor="@color/white"
+            app:backgroundTint="#FFFFFF"
+            android:textColorHint="@color/white" />
 
         <EditText
             android:id="@+id/textFieldPassword"
@@ -42,15 +43,55 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:ems="10"
+            android:fontFamily="@font/roboto"
             android:hint="Password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:linksClickable="false"
+            android:scrollbarThumbHorizontal="@color/white"
+            android:scrollbarThumbVertical="@color/white"
+            android:textColor="@color/white"
+            app:backgroundTint="#FFFFFF"
+            android:textColorHint="@color/white" />
 
         <Button
             android:id="@+id/buttonLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@android:dimen/app_icon_size"
-            android:text="Login" />
+            android:text="Login"
+            android:textColor="@color/main"
+            app:backgroundTint="@color/white" />
     </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="220dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="124dp"
+            android:layout_marginRight="124dp"
+            android:fontFamily="@font/roboto"
+            android:text="Entre com sua conta"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/platformName" />
+
+        <TextView
+            android:id="@+id/platformName"
+            android:layout_width="match_parent"
+            android:layout_height="93dp"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:paddingBottom="50dp"
+            android:text="NoAbsent"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
