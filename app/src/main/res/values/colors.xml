@@ -8,4 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="main">#7113DD</color>
+    <color name="mtrl_textinput_default_box_stroke_color" >#fff</color>
+
 </resources>

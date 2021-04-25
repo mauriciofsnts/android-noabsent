@@ -3,6 +3,7 @@ package com.noabsent;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -10,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.noabsent.activity.RegisterPresence;
 import com.noabsent.dao.StudentDAO;
 
 
@@ -34,9 +36,16 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                // Ao clicar no botão fecha o teclado do usuário
-                InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+                try {
+
+                    // Ao clicar no botão fecha o teclado do usuário
+                    InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+
+                } catch (Exception e){
+                    System.out.println("errordebug" + e);
+                }
+
 
                 String userRGM = textFieldUserRGM.getText().toString();
                 String userPass = textFieldPassword.getText().toString();
@@ -53,12 +62,13 @@ public class MainActivity extends AppCompatActivity {
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
                 }
-
-                System.out.println("Hello Usuário logado!!.. " + isValid);
+                else {
+                    startActivity(new Intent(MainActivity.this, RegisterPresence.class));
+                }
 
 
             }
-        }) ;
+        });
 
     }
 }
