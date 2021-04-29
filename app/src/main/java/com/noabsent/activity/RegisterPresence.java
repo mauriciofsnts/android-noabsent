@@ -79,9 +79,30 @@ public class RegisterPresence extends AppCompatActivity {
 
                     try {
                         if (courseDAO.checkCourse(course)){
-                            Intent intent = new Intent(RegisterPresence.this, PresenceSuccess.class);
-                            intent.putExtra("course", course.getName());
-                            startActivity(intent);
+
+                            String faculLat = "-23.536";
+                            String faculLong = "-46.560";
+                            String userLat = (String) txtLatitude.getText();
+                            String userLong = (String) txtLongitude.getText();
+
+                            if(userLat != null && userLong != null){
+                                if (userLat.substring(10, 17).equals(faculLat) && userLong.substring(11, 18).equals(faculLong)){
+                                    Intent intent = new Intent(RegisterPresence.this, PresenceSuccess.class);
+                                    intent.putExtra("course", course.getName());
+                                    startActivity(intent);
+                                }
+                                else {
+                                    Context context = getApplicationContext();
+                                    CharSequence text = "Você não está na faculdade";
+                                    int duration = Toast.LENGTH_SHORT;
+
+                                    Toast toast = Toast.makeText(context, text, duration);
+                                    toast.show();
+                                }
+                            }
+
+
+
                         }
                         else {
                             Context context = getApplicationContext();
