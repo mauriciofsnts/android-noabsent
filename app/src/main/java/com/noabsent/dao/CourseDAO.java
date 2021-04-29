@@ -1,9 +1,18 @@
 package com.noabsent.dao;
 
+import android.os.Build;
 import com.noabsent.beans.Course;
-
+import org.joda.time.DateTime;
+import org.joda.time.LocalDateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.util.Calendar;
+import java.util.Date;
 
 public class CourseDAO {
 
@@ -32,7 +41,7 @@ public class CourseDAO {
         courseArr[0] = new Course(1, "FUNDAMENTOS DE INTELIGÊNCIA ARTIFICIAL", "19:10", "21:50", "Segunda-Feira");
         courseArr[1] = new Course(2, "TRABALHO DE GRADUAÇÃO INTERDISCIPLINAR I", "19:10", "21:50", "Terça-Feira");
         courseArr[2] = new Course(3, "LINGUAGENS FORMAIS E AUTÔMATOS", "21:50", "23:00", "Quarta-Feira");
-        courseArr[3] = new Course(4, "PROGRAMAÇÃO PARA DISPOSITIVOS MÓVEIS", "19:10", "23:00", "Quinta-Feira");
+        courseArr[3] = new Course(4, "PROGRAMAÇÃO PARA DISPOSITIVOS MÓVEIS", "19:10", "21:50", "Quinta-Feira");
 
         int position = 0; 
         
@@ -47,22 +56,44 @@ public class CourseDAO {
         return courseArr[position];
     }
 
-    public boolean checkCourse(Course c){
+
+    public boolean checkCourse(Course c) throws ParseException {
 
         boolean isValid = false;
 
-        DateTimeFormatter formatador = DateTimeFormat.forPattern("HH:mm");
-
-        String classStartTime = c.getStartTime();
-        String classEndTime = c.getEndTime();
+        String dia = diaSemana();
 
 
+       if(dia.equals(c.getDayOfWeek())){
 
+
+
+           DateTimeFormatter formatter = DateTimeFormat.forPattern("HH:mm");
+           DateTime deHoras = formatter.parseDateTime(c.getStartTime());
+           DateTime ateHoras = formatter.parseDateTime(c.getEndTime());
+
+           String getHoraAgra = LocalTime.now().format((java.time.format.DateTimeFormatter.ofPattern("HH:mm")));
+           DateTime horaAgra = formatter.parseDateTime(getHoraAgra);
+
+           boolean inicio = deHoras.isAfter(horaAgra);
+           boolean fim = ateHoras.isBefore(horaAgra);
+
+           if (!inicio && !fim) {
+               isValid = true;
+           }
+
+       }
 
         return isValid;
     }
 
-    /*
+    public boolean isCurrentTimeBetween(String starthhmmss, String endhhmmss) throws ParseException  {
+        DateFormat hhmmssFormat = new SimpleDateFormat("yyyyMMddhh:mm:ss");
+        Date now = new Date();
+        String yyyMMdd = hhmmssFormat.format(now).substring(0, 8);
+            return(hhmmssFormat.parse(yyyMMdd+starthhmmss).before(now) && hhmmssFormat.parse(yyyMMdd+endhhmmss).after(now));
+    }
+
     private String diaSemana() {
         Calendar calendar = Calendar.getInstance();
         int day = calendar.get(Calendar.DAY_OF_WEEK);
@@ -92,5 +123,5 @@ public class CourseDAO {
         }
         return dia;
     }
-    */
+
 }

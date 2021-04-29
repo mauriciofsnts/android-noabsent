@@ -28,6 +28,8 @@ import com.noabsent.R;
 import com.noabsent.beans.Course;
 import com.noabsent.dao.CourseDAO;
 
+import java.text.ParseException;
+
 
 public class RegisterPresence extends AppCompatActivity {
 
@@ -66,9 +68,6 @@ public class RegisterPresence extends AppCompatActivity {
             }
         });
 
-
-
-
         buttonPresence.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,9 +77,25 @@ public class RegisterPresence extends AppCompatActivity {
                 if(selectedAutoComplete != null && selectedAutoComplete.length() > 0 ) {
                     Course course = courseDAO.getCourseByName(selectedAutoComplete.toString());
 
-                    Intent intent = new Intent(RegisterPresence.this, PresenceSuccess.class);
-                    intent.putExtra("course", course.getName());
-                    startActivity(intent);
+                    try {
+                        if (courseDAO.checkCourse(course)){
+                            Intent intent = new Intent(RegisterPresence.this, PresenceSuccess.class);
+                            intent.putExtra("course", course.getName());
+                            startActivity(intent);
+                        }
+                        else {
+                            Context context = getApplicationContext();
+                            CharSequence text = "Não há aula nesse horário";
+                            int duration = Toast.LENGTH_SHORT;
+
+                            Toast toast = Toast.makeText(context, text, duration);
+                            toast.show();
+                        }
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+
+
                 }
                 else {
                     Context context = getApplicationContext();
