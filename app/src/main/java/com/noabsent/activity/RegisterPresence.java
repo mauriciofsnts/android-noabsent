@@ -3,6 +3,7 @@ package com.noabsent.activity;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
@@ -38,6 +39,7 @@ public class RegisterPresence extends AppCompatActivity {
     TextView txtLatitude;
     TextView txtLongitude;
     TextView courseTextHourInfo;
+    ConstraintLayout progressContainer;
 
     // this annotation because this core drequires android jelly bean
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
@@ -102,7 +104,6 @@ public class RegisterPresence extends AppCompatActivity {
                             }
 
 
-
                         }
                         else {
                             Context context = getApplicationContext();
@@ -139,6 +140,8 @@ public class RegisterPresence extends AppCompatActivity {
 
         else {
             try {
+                progressContainer = (ConstraintLayout) findViewById(R.id.progressContainer);
+
 
                 LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
@@ -150,7 +153,7 @@ public class RegisterPresence extends AppCompatActivity {
 
                         txtLatitude.setText("Latitude: " + location.getLatitude());
                         txtLongitude.setText("Longitude: " + location.getLongitude());
-
+                        progressContainer.setVisibility(View.INVISIBLE);
                     }
                 };
 

@@ -41,7 +41,7 @@ public class CourseDAO {
         courseArr[0] = new Course(1, "FUNDAMENTOS DE INTELIGÊNCIA ARTIFICIAL", "19:10", "21:50", "Segunda-Feira");
         courseArr[1] = new Course(2, "TRABALHO DE GRADUAÇÃO INTERDISCIPLINAR I", "19:10", "21:50", "Terça-Feira");
         courseArr[2] = new Course(3, "LINGUAGENS FORMAIS E AUTÔMATOS", "21:50", "23:00", "Quarta-Feira");
-        courseArr[3] = new Course(4, "PROGRAMAÇÃO PARA DISPOSITIVOS MÓVEIS", "19:53", "21:50", "Quinta-Feira");
+        courseArr[3] = new Course(4, "PROGRAMAÇÃO PARA DISPOSITIVOS MÓVEIS", "19:10", "21:50", "Quinta-Feira");
 
         int position = 0; 
         
