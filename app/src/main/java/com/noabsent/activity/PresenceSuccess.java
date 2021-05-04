@@ -25,6 +25,7 @@ import com.noabsent.dao.CourseDAO;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 
 
 public class PresenceSuccess extends AppCompatActivity {
@@ -49,9 +50,14 @@ public class PresenceSuccess extends AppCompatActivity {
             if (course != null){
 
                 textView3 = findViewById(R.id.textView3);
+
+                Calendar rightNow = Calendar.getInstance();
+                String horario = rightNow.get(Calendar.HOUR_OF_DAY) + ":" + rightNow.get(Calendar.MINUTE);
+                String dia = rightNow.get(Calendar.DAY_OF_MONTH) + "/" + rightNow.get(Calendar.MONTH) + "/" + rightNow.get(Calendar.YEAR);
+
                 textView3.setText("Sua presença em " + course.getName() +
-                        " foi registrada em " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) +
-                        " às " + LocalTime.now().format((DateTimeFormatter.ofPattern("HH:mm"))));
+                        " foi registrada em " + dia +
+                        " às " + horario);
             }
 
         }

@@ -28,21 +28,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        textFieldUserRGM = (EditText)findViewById(R.id.textFieldUserRGM);
-        textFieldPassword = (EditText)findViewById(R.id.textFieldPassword);
-        buttonLogin = (Button)findViewById(R.id.buttonLogin);
+        textFieldUserRGM = (EditText) findViewById(R.id.textFieldUserRGM);
+        textFieldPassword = (EditText) findViewById(R.id.textFieldPassword);
+        buttonLogin = (Button) findViewById(R.id.buttonLogin);
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 try {
-
-                    // Ao clicar no botão fecha o teclado do usuário
                     InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
-
-                } catch (Exception e){
+                } catch (Exception e) {
                     System.out.println("errordebug" + e);
                 }
 
@@ -54,15 +51,14 @@ public class MainActivity extends AppCompatActivity {
 
                 boolean isValid = dao.LoginUser(userRGM, userPass);
 
-                if(!isValid){
+                if (!isValid) {
                     Context context = getApplicationContext();
                     CharSequence text = "Usuário inválido!";
                     int duration = Toast.LENGTH_SHORT;
 
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
-                }
-                else {
+                } else {
                     startActivity(new Intent(MainActivity.this, RegisterPresence.class));
                 }
 

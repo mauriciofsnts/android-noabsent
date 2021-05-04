@@ -44,7 +44,6 @@ public class RegisterPresence extends AppCompatActivity implements LocationListe
     private final int GPS_REQUEST = 100;
     private LocationManager locationManager;
 
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,7 +113,7 @@ public class RegisterPresence extends AppCompatActivity implements LocationListe
                             Toast toast = Toast.makeText(context, text, duration);
                             toast.show();
                         }
-                    } catch (ParseException e) {
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
 
@@ -176,5 +175,20 @@ public class RegisterPresence extends AppCompatActivity implements LocationListe
         buttonPresence.setEnabled(true);
         txtLatitude.setText("Latitude: " + location.getLatitude());
         txtLongitude.setText("Longitude: " + location.getLongitude());
+    }
+
+    @Override
+    public void onProviderEnabled(@NonNull String provider) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(@NonNull String provider) {
+
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+
     }
 }
