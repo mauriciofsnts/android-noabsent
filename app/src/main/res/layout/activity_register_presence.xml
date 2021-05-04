@@ -59,11 +59,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
                 android:layout_weight="1"
+                android:enabled="false"
                 android:fontFamily="@font/roboto"
                 android:text="Presente"
                 android:textColor="@color/main"
-                app:backgroundTint="@color/white"
-                />
+                app:backgroundTint="@color/white" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -137,28 +137,6 @@
             android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/progressContainer"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/main"
-        tools:visibility="visible">
-
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="@style/Widget.AppCompat.ProgressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:progressBackgroundTint="@color/white"
-            android:progressTint="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
