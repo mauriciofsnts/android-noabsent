@@ -6,17 +6,15 @@ public class Student {
     private String rgm;
     private String password;
     private String name;
-    private String email;
 
-    public Student() {
-    }
-
-    public Student(long id, String rgm, String password, String name, String email) {
+    public Student(long id, String rgm, String password, String name) {
         this.id = id;
         this.rgm = rgm;
         this.password = password;
         this.name = name;
-        this.email = email;
+    }
+
+    public Student() {
     }
 
     public long getId() {
@@ -49,24 +47,5 @@ public class Student {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    @Override
-    public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", rgm='" + rgm + '\'' +
-                ", password='" + password + '\'' +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                '}';
     }
 }

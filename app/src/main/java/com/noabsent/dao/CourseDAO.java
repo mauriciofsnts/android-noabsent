@@ -25,7 +25,7 @@ public class CourseDAO {
         courseArr = new Course[4];
 
         courseArr[0] = new Course(1, "FUNDAMENTOS DE INTELIGÊNCIA ARTIFICIAL", "19:10", "21:50", "Segunda-Feira");
-        courseArr[1] = new Course(2, "TRABALHO DE GRADUAÇÃO INTERDISCIPLINAR I", "11:10", "21:50", "Terça-Feira");
+        courseArr[1] = new Course(2, "TRABALHO DE GRADUAÇÃO INTERDISCIPLINAR I", "19:10", "21:50", "Terça-Feira");
         courseArr[2] = new Course(3, "LINGUAGENS FORMAIS E AUTÔMATOS", "21:50", "23:00", "Quarta-Feira");
         courseArr[3] = new Course(4, "PROGRAMAÇÃO PARA DISPOSITIVOS MÓVEIS", "19:10", "23:00", "Quinta-Feira");
 
@@ -40,7 +40,7 @@ public class CourseDAO {
         courseArr = new Course[4];
 
         courseArr[0] = new Course(1, "FUNDAMENTOS DE INTELIGÊNCIA ARTIFICIAL", "19:10", "21:50", "Segunda-Feira");
-        courseArr[1] = new Course(2, "TRABALHO DE GRADUAÇÃO INTERDISCIPLINAR I", "11:10", "21:50", "Terça-Feira");
+        courseArr[1] = new Course(2, "TRABALHO DE GRADUAÇÃO INTERDISCIPLINAR I", "19:10", "21:50", "Terça-Feira");
         courseArr[2] = new Course(3, "LINGUAGENS FORMAIS E AUTÔMATOS", "21:50", "23:00", "Quarta-Feira");
         courseArr[3] = new Course(4, "PROGRAMAÇÃO PARA DISPOSITIVOS MÓVEIS", "19:10", "21:50", "Quinta-Feira");
 
@@ -74,8 +74,6 @@ public class CourseDAO {
 
             Calendar rightNow = Calendar.getInstance();
             String getHoraAgra = rightNow.get(Calendar.HOUR_OF_DAY) + ":" + rightNow.get(Calendar.MINUTE);
-
-            //String getHoraAgra = LocalTime.now().format((java.time.format.DateTimeFormatter.ofPattern("HH:mm")));
             DateTime horaAgra = formatter.parseDateTime(getHoraAgra);
 
             boolean inicio = deHoras.isAfter(horaAgra);

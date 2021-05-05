@@ -9,21 +9,22 @@ public class StudentDAO {
         // Boolean para indicar se os dados conferem com a base
         boolean validado = false;
 
-
-
             // Declarando o array de estudantes
             Student[] studentArr;
 
             // Alocando espaço para 4 estudantes
-            studentArr = new Student[4];
+            studentArr = new Student[6];
 
-            studentArr[0] = new Student(1, "19611111", "pass123123", "Rick Sanchez", "sanchez@mail.com");
-            studentArr[1] = new Student(2, "19", "123", "2Pac", "2pac@mail.com");
-            studentArr[2] = new Student(3, "19622222", "oodogg", "Snoop Dogg", "doggdogg@mail.com");
-            studentArr[3] = new Student(4, "19633333", "slimshady", "Eminem", "realSlim@mail.com");
+            studentArr[0] = new Student(1, "19479654", "123", "Luiz Eduardo Ribeiro dos Santos");
+            studentArr[1] = new Student(2, "19618492", "123", "Mauricio Ferraz dos Santos");
+            studentArr[2] = new Student(3, "20167067", "123", "Rodrigo Costa Servilha Reina");
+            studentArr[3] = new Student(4, "19463448", "123", "Savyo Yuri de Melo Pereira");
+            studentArr[4] = new Student(5, "19572646", "123", "Victor Oliveira Hotts");
+            studentArr[5] = new Student(5, "19641869", "123", "Vinicius de Lima Dutra");
 
 
-            for (int i = 0; i < studentArr.length; i++) {
+
+        for (int i = 0; i < studentArr.length; i++) {
 
                 String userRGM = studentArr[i].getRgm();
                 String userPass = studentArr[i].getPassword();
